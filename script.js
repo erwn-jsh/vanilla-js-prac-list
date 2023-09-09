@@ -23,22 +23,6 @@ function onAddItemSubmit(e) {
     return;
   }
 
-  // check for edit mode
-  if (isEditMode) {
-    const itemToEdit = itemList.querySelector(".edit-mode");
-
-    removeItemFromStorage(itemToEdit.textContent);
-    itemToEdit.classList.remove("edit-mode");
-    itemToEdit.remove();
-    isEditMode = false;
-  } else {
-    if (checkIfItemExists(newItem)) {
-      alert("Item already exists");
-
-      return;
-    }
-  }
-
   addItemToDOM(newItem);
   addItemToStorage(newItem);
 
